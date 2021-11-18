@@ -3,15 +3,6 @@ from collections import namedtuple
 
 from ConfigSpace.read_and_write import json as cs_json
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# Option 2: Sample from a ConfigSpace
-configspace_path = os.path.join(current_dir, 'configspace.json')
-with open(configspace_path, "r") as f:
-    json_string = f.read()
-    configspace = cs_json.read(json_string)
-configspace_config = configspace.sample_configuration()
-print(configspace_config)
-
 import nasbench301 as nb
 
 # Default dirs for models
@@ -63,7 +54,7 @@ genotype_config = Genotype(
         )
 
 # Option 2: Sample from a ConfigSpace
-configspace_path = os.path.join(current_dir, 'configspace.json')
+configspace_path = os.path.join(current_dir, 'nasbench301/configspace.json')
 with open(configspace_path, "r") as f:
     json_string = f.read()
     configspace = cs_json.read(json_string)
